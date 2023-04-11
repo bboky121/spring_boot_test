@@ -76,7 +76,7 @@ class GadgetController(private val gadgetRepository: GadgetRepository) {
 
     @DeleteMapping("/gadgets/{id}")
     fun removeGadgetById(@PathVariable("id") gadgetId: Long): ResponseEntity<Void> {
-        if (gadgetRepository.existsById(gadgetId)) {
+        if(gadgetRepository.existsById(gadgetId)) {
             gadgetRepository.deleteById(gadgetId)
             return ResponseEntity<Void>(HttpStatus.NO_CONTENT)
         }
