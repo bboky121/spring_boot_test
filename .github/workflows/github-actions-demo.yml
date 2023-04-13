@@ -16,3 +16,10 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Kotlin-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: gradlew 실행하기 위한 퍼미션 변경
+        run: chmod +x gradlew
+      - name: 테스트 실행
+        run: ./gradlew test

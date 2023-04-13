@@ -3,10 +3,8 @@ package com.example.gadget.controller
 import com.example.gadget.model.Gadget
 import com.example.gadget.repository.GadgetRepository
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.apache.coyote.Request
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
