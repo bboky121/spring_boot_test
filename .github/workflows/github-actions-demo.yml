@@ -19,7 +19,12 @@ jobs:
   Kotlin-Test:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: List files in the repository
+        run: |
+            ls ${{ github.workspace }}
       - name: gradlew 실행하기 위한 퍼미션 변경
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
       - name: 테스트 실행
         run: ./gradlew test
