@@ -27,10 +27,23 @@ class GadgetController(private val gadgetRepository: GadgetRepository) {
     @GetMapping("/gadgets")
     fun fetchGadgets(): ResponseEntity<List<Gadget>> {
         val gadgets = gadgetRepository.findAll()
-        if (gadgets.isEmpty()) {
+        if(gadgets.isEmpty()) {
             return ResponseEntity<List<Gadget>>(HttpStatus.NO_CONTENT)
         }
-        return ResponseEntity<List<Gadget>>(gadgets, HttpStatus.OK)
+        return ResponseEntity<List<Gadget>>(gadgets,HttpStatus.OK)
+    }
+
+    @GetMapping("/gadgets/twice")
+    fun displayGadgetTwice(): ResponseEntity<MutableList<Gadget>> {
+        val tempGadgets = gadgetRepository.findAll()
+        val gadgets : MutableList<Gadget> = mutableListOf<Gadget>();
+        println(tempGadgets)
+        for (gadget in tempGadgets) {
+            gadgets.add(gadget)
+            gadgets.add(gadget)
+        }
+        println(gadgets)
+        return ResponseEntity<MutableList<Gadget>>(gadgets,HttpStatus.OK)
     }
 
     @PostMapping("/gadgets")
