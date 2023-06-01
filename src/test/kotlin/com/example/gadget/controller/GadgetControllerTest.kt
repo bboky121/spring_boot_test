@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @SpringBootTest
 @AutoConfigureMockMvc
 class GadgetControllerTest @Autowired constructor (
-    val gadgetRepository: GadgetRepository,
-    val mockMvc: MockMvc,
+    private val gadgetRepository: GadgetRepository,
+    private val mockMvc: MockMvc,
 ) {
     @Test
     fun addNewGadget() {
